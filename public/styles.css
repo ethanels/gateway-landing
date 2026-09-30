@@ -226,7 +226,7 @@ ul {
 @media (width > 760px) {
   .difference {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    padding-top: calc(clamp(48px, 12.5vw, 180px) - 50px); /* content sits 50px higher on desktop */
+    padding-top: calc(clamp(48px, 12.5vw, 180px) - 50px); /* content sits 5px higher on desktop */
   }
 
   .uniques {
