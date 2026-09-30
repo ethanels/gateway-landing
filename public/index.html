@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gateway English Center | Functional English</title>
+  <meta name="description" content="Gateway English Center | Functional English">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=DM+Sans:wght@400;500;700&family=Tajawal:wght@400;700&display=swap">
+
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/main.js" defer></script>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR (temporary) — delete this element and its block in styles.css at launch -->
+  <p class="announcement" data-i18n="soon">Coming soon to Saudi Arabia</p>
+
+  <header class="site-header" dir="ltr">
+    <a class="logo" href="/">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 645 180" role="img" aria-label="Gateway English Center">
+        <rect x="0" y="0" width="101" height="40" rx="4" fill="#7598CC"/>
+        <rect x="109" y="0" width="36" height="40" rx="4" fill="#E1702E"/>
+        <rect x="0" y="54" width="53" height="126" rx="4" fill="#1E3A8A"/>
+        <rect x="92" y="54" width="53" height="126" rx="4" fill="#1E3A8A"/>
+        <text x="193" y="93.9" textLength="435" lengthAdjust="spacingAndGlyphs" fill="#1E3A8A" style="font-family:'Anybody',sans-serif;font-size:80px;font-weight:400;font-stretch:125%;font-variation-settings:'wdth' 125;letter-spacing:-0.8px">Gateway</text>
+        <text x="199" y="154" textLength="429" lengthAdjust="spacing" fill="#7598CC" style="font-family:'DM Sans',sans-serif;font-size:34px;font-weight:400;letter-spacing:13.31px">ENGLISH CENTER</text>
+      </svg>
+    </a>
+
+    <!-- Shown only when SHOW_LANGUAGE_TOGGLE is true (main.js) -->
+    <div class="lang-toggle" role="group" aria-label="Language" hidden>
+      <button type="button" lang="en" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" lang="ar" data-lang="ar" aria-pressed="false">عربي</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 data-i18n="headline">Functional English to achieve your goals.</h1>
+      <a class="cta" href="#contact" data-i18n="cta">Contact Us</a>
+    </section>
+
+    <div class="difference-wrap">
+      <section class="difference" aria-labelledby="difference-heading">
+        <div class="difference__text">
+          <h2 id="difference-heading" data-i18n="differenceHeading">The Gateway Difference</h2>
+          <p data-i18n="about">Gateway English blends in-person engagement with modern technology to help individuals and businesses communicate confidently, compete effectively, and thrive in the marketplace.</p>
+        </div>
+
+        <ul class="uniques">
+          <li class="unique">
+            <span class="unique__icon" aria-hidden="true">
+              <!-- Lucide: award (ISC) -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </span>
+            <span class="unique__label" data-i18n="uniques.0">Cambridge-Certified, Native English Teachers</span>
+          </li>
+          <li class="unique">
+            <span class="unique__icon" aria-hidden="true">
+              <!-- Lucide: map-pin (ISC) -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <span class="unique__label" data-i18n="uniques.1">In-Person lessons at Satellite branches in Mid-Sized Saudi Cities</span>
+          </li>
+          <li class="unique">
+            <span class="unique__icon" aria-hidden="true">
+              <!-- Lucide: sparkles (ISC) -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+            </span>
+            <span class="unique__label" data-i18n="uniques.2">At-Home lessons with Artificial Intelligence tools</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="contact" id="contact">
+    <address>
+      <p class="contact__name" data-i18n="contactName">Reagan White</p>
+      <p class="contact__role" data-i18n="contactRole">Founder and General Manager</p>
+      <a class="contact__email" href="mailto:reagan@gatewayenglishcenter.com" dir="ltr" data-i18n="contactEmail">reagan@gatewayenglishcenter.com</a>
+    </address>
+  </footer>
+
+</body>
+</html>

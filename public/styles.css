@@ -1,0 +1,330 @@
+/*
+ * Gateway English Center — placeholder landing page
+ *
+ * Mobile first. Sizes scale fluidly with clamp() from the 390px mobile value
+ * to the 1440px desktop value. Where the handoff gives a fixed mobile/desktop
+ * pair (e.g. 16px → 17px), the middle term interpolates linearly between
+ * those two viewport widths. The only breakpoint is 760px (Difference box).
+ */
+
+:root {
+  --primary: #1E3A8A;
+  --bg-blue: #DBEAFE;
+  --warm: #F6F1E8;
+  --accent: #E1702E;
+  --accent-hover: #C95F22;
+  --body-text: #33406b;
+  --footer: #3D3D3D;
+
+  --font-display: 'Anybody', 'Tajawal', sans-serif;
+  --font-body: 'DM Sans', 'Tajawal', sans-serif;
+  --ease-reveal: cubic-bezier(.2, .7, .2, 1);
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--warm);
+  color: var(--primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* ---------- Announcement bar (temporary — delete this block at launch) ---------- */
+
+.announcement {
+  padding: clamp(9px, 0.8vw, 11px) clamp(16px, calc(14.51px + 0.381vw), 20px);
+  background: var(--primary);
+  color: #FFFFFF;
+  text-align: center;
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-variation-settings: 'wdth' 125;
+  font-size: clamp(11px, 0.9vw, 13px);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(clamp(24px, 2.5vw, 36px) + 10px) clamp(20px, 4.4vw, 64px) 0;
+}
+
+.logo {
+  display: block;
+  width: clamp(150px, 18vw, 260px);
+  border-radius: 4px;
+}
+
+.logo svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lang-toggle {
+  display: flex;
+  border: 1.5px solid var(--primary);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.lang-toggle[hidden] {
+  display: none;
+}
+
+.lang-toggle:has(:focus-visible) {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.lang-toggle button {
+  margin: 0;
+  border: 0;
+  padding: clamp(3.6px, calc(3.27px + 0.0857vw), 4.5px) clamp(10.8px, calc(9.8px + 0.2571vw), 13.5px);
+  background: transparent;
+  color: var(--primary);
+  font-family: var(--font-body);
+  font-size: clamp(11.7px, calc(11.37px + 0.0857vw), 12.6px);
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lang-toggle button:focus-visible {
+  outline: none;
+}
+
+.lang-toggle button[aria-pressed="true"] {
+  background: var(--primary);
+  color: var(--warm);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  min-height: clamp(320px, 34.7vw, 500px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(28px, 2.8vw, 40px);
+  padding: 0 clamp(24px, 4.4vw, 64px);
+  text-align: center;
+}
+
+.hero h1 {
+  max-width: 900px;
+  font-family: var(--font-display);
+  font-stretch: 100%;
+  font-variation-settings: 'wdth' 100;
+  font-size: clamp(38px, 4.7vw, 68px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  padding: clamp(14px, calc(13.26px + 0.1905vw), 16px) clamp(28px, calc(25.77px + 0.5714vw), 34px);
+  border-radius: 999px;
+  background: var(--accent);
+  color: #FFFFFF;
+  font-size: clamp(16px, calc(15.63px + 0.0952vw), 17px);
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color .15s ease;
+}
+
+.cta:hover {
+  background: var(--accent-hover);
+}
+
+/* ---------- Gateway Difference ---------- */
+
+.difference-wrap {
+  padding: 0 clamp(16px, 4.4vw, 64px);
+}
+
+/* Mobile: single column, heading + paragraph above the tiles (source order). */
+.difference {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(48px, 12.5vw, 180px) clamp(20px, 5vw, 72px) clamp(24px, 5vw, 72px);
+  border-radius: clamp(24px, 2.2vw, 32px);
+  background: var(--bg-blue);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: start;
+}
+
+.difference__text {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 1.5vw, 22px);
+  padding: 0 4px;
+}
+
+.difference__text h2 {
+  font-family: var(--font-display);
+  font-stretch: 100%;
+  font-variation-settings: 'wdth' 100;
+  font-size: clamp(28px, 2.8vw, 40px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.difference__text p {
+  color: var(--body-text);
+  font-size: clamp(16px, 1.32vw, 19px);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+/* Desktop: tiles in the start column, text in the end column (mirrors in RTL). */
+@media (width > 760px) {
+  .difference {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    padding-top: calc(clamp(48px, 12.5vw, 180px) - 50px); /* content sits 50px higher on desktop */
+  }
+
+  .uniques {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .difference__text {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 8px 0 0;
+  }
+}
+
+.uniques {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.1vw, 16px);
+}
+
+.unique {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.4vw, 20px);
+  padding: clamp(18px, 1.8vw, 26px) clamp(18px, 1.9vw, 28px);
+  border-radius: clamp(16px, calc(15.26px + 0.1905vw), 18px);
+  background: var(--warm);
+}
+
+.unique__icon {
+  flex: none;
+  width: clamp(40px, 3.3vw, 48px);
+  height: clamp(40px, 3.3vw, 48px);
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unique__icon svg {
+  display: block;
+  width: 52%;
+  height: 52%;
+}
+
+.unique__label {
+  font-size: clamp(17px, 1.46vw, 21px);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+/* ---------- Contact footer ---------- */
+
+.contact {
+  margin-top: clamp(64px, 8.3vw, 120px);
+  padding: clamp(32px, 3.3vw, 48px) clamp(24px, 4.4vw, 64px) clamp(36px, 3.6vw, 52px);
+  background: var(--footer);
+  color: var(--warm);
+}
+
+.contact address {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  font-style: normal;
+  font-size: clamp(14px, calc(13.26px + 0.1905vw), 16px);
+  line-height: 1.5;
+  text-align: start;
+}
+
+.contact__name {
+  font-size: clamp(17px, calc(16.26px + 0.1905vw), 19px);
+  font-weight: 700;
+}
+
+.contact__role {
+  color: var(--bg-blue);
+}
+
+.contact__email {
+  color: var(--warm);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact :focus-visible {
+  outline-color: var(--warm);
+}
+
+/* ---------- Arabic ---------- */
+
+/* Tracking breaks the joins of cursive Arabic script. */
+:lang(ar) .announcement,
+:lang(ar) h1,
+:lang(ar) h2 {
+  letter-spacing: 0;
+}

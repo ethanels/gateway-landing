@@ -3,10 +3,24 @@
 ## Overview
 A single-page, bilingual (English / Arabic) placeholder site for Gateway English Center, an English language center launching in Saudi Arabia. It holds the headline, About Us statement, three differentiators ("uniques"), and founder contact while the full website is developed. Mobile first.
 
-## About the Design Files
-The file in `reference/` is a **design reference built in HTML**, not production code. It is a design-canvas document (it needs the design tool's runtime to open) showing two artboards: **4a** (desktop, resizable) and **4b** (mobile, 390px). Recreate the design as a real site; do not ship the reference file.
+## Project / Deploy
+- The site is a plain static site in `public/` (`index.html`, `styles.css`, `main.js`, `_headers`, `assets/`). No framework, no build step.
+- Deployed with **Cloudflare Pages** (Git integration): production branch `master`, build command **none**, build output directory **`public`**. Files outside `public/` (like this README) are not published.
+- Feature flags: constants at the top of `public/main.js`.
+- Copy: English is in `public/index.html`; both languages are in the `COPY` object in `public/main.js`.
+- `public/_headers` sets security headers on Cloudflare Pages.
 
-**Target environment:** no codebase exists yet. Recommended: a plain static site (`index.html`, `styles.css`, `main.js`, `assets/`) with no build step, stored in a **GitHub** repo and deployed with **Cloudflare Pages** (Git integration, build command: none, output directory: `/`). A framework is unnecessary for one page.
+## Local Server
+Run the server from inside `public/`:
+
+```
+cd ~/GitHub/gateway-landing/public && python3 -m http.server 8000
+```
+
+Then open http://localhost:8000. To check Arabic, set `SHOW_LANGUAGE_TOGGLE = true` in `public/main.js` and open http://localhost:8000/?lang=ar.
+
+## About the Design Files
+The design was handed off as an HTML design-canvas reference with two artboards: **4a** (desktop, resizable) and **4b** (mobile, 390px). The reference file was removed from the repo after the site was built; this document is the spec.
 
 ## Fidelity
 **High-fidelity.** Colors, typography, spacing, and copy are final. Recreate precisely. The only exception: the dashed orange "900px screen break" line in 4a is a design annotation — **do not build it**.
@@ -15,7 +29,7 @@ The file in `reference/` is a **design reference built in HTML**, not production
 
 ### 0. Announcement bar (temporary)
 - Full-width strip at the very top, above the header. Static text, **no scrolling/marquee**.
-- Text: "Coming soon to Saudi Arabia" (`copy.json` → `soon`), centered.
+- Text: "Coming soon to Saudi Arabia" (`COPY` → `soon` in `public/main.js`), centered.
 - Background `#1E3A8A`, text `#FFFFFF`.
 - Font: Anybody **Expanded** (`wdth` 125), 600, uppercase, letter-spacing `.12em`, line-height 1.3, size `clamp(11px, 0.9vw, 13px)`.
 - Padding `clamp(9px, 0.8vw, 11px) 20px` (16px sides on mobile).
@@ -85,13 +99,13 @@ Expose as simple config (e.g. constants at the top of `main.js`) so they can be 
 ## Interactions & Behavior
 - **Unique tiles scroll reveal**: each tile starts at `opacity: 0; transform: translateY(24px)` and animates to `opacity: 1; transform: none` when 25% of it enters the viewport (IntersectionObserver, `threshold: 0.25`). Duration 600ms, easing `cubic-bezier(.2,.7,.2,1)`, stagger 120ms per tile (0 / 120 / 240ms). Plays once per page load. Skip (tiles simply visible) when `prefers-reduced-motion: reduce` or `ANIMATE_UNIQUES` is false. Apply the hidden start state from JS, not CSS, so tiles are never stuck invisible if JS fails.
 - **Contact Us** → smooth-scroll to `#contact` (`scroll-behavior: smooth` on `html`, or `scrollIntoView({behavior:'smooth'})`). Respect `prefers-reduced-motion`.
-- **Language toggle** → swaps all copy (see `copy.json`), sets `<html lang>` and `dir` (`en`/`ltr`, `ar`/`rtl`), and updates `<title>` if desired. Persist the choice in `localStorage`. Default: English. Consider also supporting `?lang=ar` for sharing.
+- **Language toggle** → swaps all copy (see the `COPY` object in `public/main.js`), sets `<html lang>` and `dir` (`en`/`ltr`, `ar`/`rtl`), and updates `<title>` if desired. Persist the choice in `localStorage`. Default: English. Consider also supporting `?lang=ar` for sharing.
 - **Mirroring in Arabic**: everything mirrors via `dir="rtl"` **except** the header row (logo left, toggle right, forced `ltr`) and the email address (`ltr`).
 - **Responsive**: all sizes use `clamp()` between the mobile value (390px) and the desktop value (1440px); the only breakpoint is **760px** for the box going single-column. The reference file used container units (`cqi`); use `vw` on the real page.
 - No forms, loading, or error states.
 
 ## Copy
-Use `copy.json` verbatim for both languages. Notes:
+All English and Arabic copy lives in the `COPY` object in `public/main.js` (English also in `public/index.html`); keep them in sync. Notes:
 - "Gateway" and "Reagan White" stay in English in the Arabic version, except where the client supplied Arabic: the heading "ميزة القيتوي" and "معهد قيتوي للغة الإنجليزية" in the About Us text.
 - The Arabic translation should be reviewed by a native speaker before launch.
 
@@ -143,13 +157,15 @@ Use `copy.json` verbatim for both languages. Notes:
 ```
 
 ## Files
-- `README.md` — this document
-- `copy.json` — all English and Arabic copy, plus meta
-- `assets/logo.svg`, `assets/favicon.svg`
-- `reference/Landing Page Design.dc.html` — design reference (artboards 4a desktop, 4b mobile)
+- `README.md` — this document (not published)
+- `.gitignore`
+- `public/index.html`, `public/styles.css`, `public/main.js` — the site
+- `public/_headers` — Cloudflare Pages security headers
+- `public/assets/` — `logo.svg`, `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`
 
 ## Open Items
 - Native-speaker review of the Arabic copy (including the new uniques and announcement text).
 - Remove the announcement bar at launch.
 - Confirm Arabic font (Tajawal is a placeholder).
 - Custom domain setup on Cloudflare Pages (gatewayenglishcenter.com).
+- Deliberate deviation: on desktop (> 760px) the Gateway Difference box's top padding is reduced from the spec (see `padding-top` in the desktop media query in `public/styles.css`).
