@@ -23,9 +23,9 @@ const COPY = {
     differenceHeading: 'The Gateway Difference',
     about: 'Gateway English blends in-person engagement with modern technology to help individuals and businesses communicate confidently, compete effectively, and thrive in the marketplace.',
     uniques: [
-      'Cambridge-Certified, Native English Teachers',
-      'In-Person lessons at Satellite branches in Mid-Sized Saudi Cities',
-      'At-Home lessons with Artificial Intelligence tools'
+      'Cambridge-certified, Native English Trainers',
+      'In-Person learning at satellite branches in mid-sized Saudi cities',
+      'At-Home learning with AI tools'
     ],
     contactName: 'Reagan White',
     contactRole: 'Founder and General Manager',
@@ -40,7 +40,7 @@ const COPY = {
     differenceHeading: 'ميزة القيتوي',
     about: 'يمزج معهد قيتوي للغة الإنجليزية بين التفاعل الحضوري والتقنيات الحديثة لمساعدة الأفراد والشركات على التواصل بثقة، والمنافسة بفعالية، والازدهار في سوق العمل.',
     uniques: [
-      'معلمون ناطقون أصليون بالإنجليزية حاصلون على شهادة كامبريدج',
+      'مدربون ناطقون أصليون بالإنجليزية حاصلون على شهادة كامبريدج',
       'دروس حضورية في فروعنا بالمدن السعودية متوسطة الحجم',
       'دروس منزلية بأدوات الذكاء الاصطناعي'
     ],
