@@ -17,6 +17,8 @@ Run the server from inside `public/`:
 cd ~/GitHub/gateway-landing/public && python3 -m http.server 8000
 ```
 
+To vew on your mobile use the IP address of the host machine. 
+
 Then open http://localhost:8000. To check Arabic, set `SHOW_LANGUAGE_TOGGLE = true` in `public/main.js` and open http://localhost:8000/?lang=ar.
 
 
